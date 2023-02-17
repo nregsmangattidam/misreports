@@ -1,5 +1,5 @@
 window.onload = async function() {
-    const response1 = await fetch('https://nregastrep.nic.in/Netnrega/writereaddata/state_out/wrk_mat_analysistemp1602006_2223.html');
+    const response1 = await fetch('https://nregastrep.nic.in/Netnrega/writereaddata/state_out/gp_commulative_report1_1602006004_local_2223.html');
     const html1 = await response1.text();
     const parser1 = new DOMParser();
     const doc1 = parser1.parseFromString(html1, "text/html");
@@ -32,9 +32,9 @@ window.onload = async function() {
             const fobj = Object.values(combinedObject)
             console.log(combinedObject);
             document.getElementById("mandays").textContent = fobj[Object.keys(fobj)[19]];
-            document.getElementById("100days").textContent = obj[Object.keys(obj)[4]];
+            document.getElementById("100days").textContent = obj[Object.keys(obj)[5]];
             document.getElementById("household").textContent = obj[Object.keys(obj)[15]];
-            document.getElementById("expndtr").textContent = fobj[Object.keys(fobj)[25]];
+            document.getElementById("expndtr").textContent = fobj[Object.keys(fobj)[21]];
             console.log(fobj);
             break;
           }
