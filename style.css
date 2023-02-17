@@ -13,3 +13,19 @@ table, th, td {
     text-align: center;
     text-shadow: 10px;
   }
+  button {
+    background-color: green;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s;
+    display: block;
+    margin: 0 auto;
+  }
+  
+  button:hover {
+    transform: scale(1.1);
+  }
+  
