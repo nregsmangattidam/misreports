@@ -32,7 +32,7 @@ window.onload = async function() {
             const fobj = Object.values(combinedObject)
             console.log(combinedObject);
             document.getElementById("mandays").textContent = fobj[Object.keys(fobj)[19]];
-            document.getElementById("100days").textContent = obj[Object.keys(obj)[5]];
+            document.getElementById("100days").textContent = obj[Object.keys(obj)[7]];
             document.getElementById("household").textContent = obj[Object.keys(obj)[15]];
             document.getElementById("expndtr").textContent = fobj[Object.keys(fobj)[24]];
             console.log(fobj);
