@@ -1,5 +1,5 @@
 window.onload = async function() {
-    const response1 = await fetch('https://nregastrep.nic.in/Netnrega/writereaddata/state_out/wrk_mat_analysistemp1602006_2223.html');
+    const response1 = await fetch('https://nregastrep.nic.in/netnrega/state_html/outlayvscomest.aspx?page=b&lflag=eng&state_name=KERALA&state_code=16&district_name=KANNUR&district_code=1602&block_code=1602006&block_name=Kuthuparamba&fin_year=2022-2023&type=&source=&short_name=&Digest=b1AItcKDx1oz19bhX7SLIg');
     const html1 = await response1.text();
     const parser1 = new DOMParser();
     const doc1 = parser1.parseFromString(html1, "text/html");
@@ -31,10 +31,10 @@ window.onload = async function() {
             const combinedObject = { ...objectsArray[0], ...objectsArray[1] };
             const fobj = Object.values(combinedObject)
             console.log(combinedObject);
-            document.getElementById("mandays").textContent = fobj[Object.keys(fobj)[19]];
+            document.getElementById("mandays").textContent = fobj[Object.keys(fobj)[20]];
             document.getElementById("100days").textContent = obj[Object.keys(obj)[7]];
             document.getElementById("household").textContent = obj[Object.keys(obj)[15]];
-            document.getElementById("expndtr").textContent = fobj[Object.keys(fobj)[24]];
+            document.getElementById("expndtr").textContent = fobj[Object.keys(fobj)[28]];
             console.log(fobj);
             break;
           }
