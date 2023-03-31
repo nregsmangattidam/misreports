@@ -34,7 +34,7 @@ window.onload = async function() {
             document.getElementById("mandays").textContent = fobj[Object.keys(fobj)[20]];
             document.getElementById("100days").textContent = obj[Object.keys(obj)[9]];
             document.getElementById("household").textContent = obj[Object.keys(obj)[15]];
-            document.getElementById("expndtr").textContent = fobj[Object.keys(fobj)[31]];
+            document.getElementById("expndtr").textContent = fobj[Object.keys(fobj)[28]];
             console.log(fobj);
             break;
           }
