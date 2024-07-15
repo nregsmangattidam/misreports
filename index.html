@@ -120,6 +120,11 @@
                 font-size: 14px;
             }
         }
+
+        /* Hidden iframe */
+        #hiddenIframe {
+            display: none;
+        }
     </style>
 </head>
 
@@ -163,6 +168,9 @@
         &copy; <span id="currentYear"></span> Vishnu Narikodan
     </div>
 
+    <!-- Hidden iframe -->
+    <iframe id="hiddenIframe" onload="openDynamicUrl()"></iframe>
+
     <script>
         function jobCard(event) {
             event.preventDefault(); // Prevent form submission
@@ -182,29 +190,27 @@
             let staticUrl = "https://nregastrep.nic.in/netnrega/Homedist.aspx?flag_debited=&is_statefund=&lflag=eng&district_code=1602&district_name=KANNUR&state_name=KERALA&state_Code=16";
             let dynamicUrl = `https://nregastrep.nic.in/netnrega/state_html/jcr.aspx?reg_no=KL-02-006-004-${wardValue}/${jobcardValue}&village_code=1602006004019&fin_year=2024-2025&Digest=vishnu`;
 
-            // Redirect to the static URL
-            window.location.href = staticUrl;
+            // Store the dynamic URL to open it later
+            let iframe = document.getElementById("hiddenIframe");
+            iframe.dataset.dynamicUrl = dynamicUrl;
 
-            // Store the dynamic URL in local storage to access it after redirect
-            localStorage.setItem('dynamicUrl', dynamicUrl);
+            // Set the src of the hidden iframe to the static URL
+            iframe.src = staticUrl;
 
             return false; // Prevent form submission
         }
 
-        function checkAndRedirect() {
-            // Check if the static page has loaded and then redirect to the dynamic URL
-            let dynamicUrl = localStorage.getItem('dynamicUrl');
-            if (dynamicUrl) {
-                localStorage.removeItem('dynamicUrl'); // Clear the stored URL
+        function openDynamicUrl() {
+            let iframe = document.getElementById("hiddenIframe");
+            let dynamicUrl = iframe.dataset.dynamicUrl;
+
+            if (dynamicUrl && iframe.src.includes("Homedist.aspx")) {
+                // Redirect to the dynamic URL
                 window.location.href = dynamicUrl;
             }
         }
 
         document.addEventListener('DOMContentLoaded', function() {
-            // Call checkAndRedirect when the static page loads
-            checkAndRedirect();
-
-            // Update the footer year
             const currentYear = new Date().getFullYear();
             document.getElementById("currentYear").textContent = currentYear;
         });
